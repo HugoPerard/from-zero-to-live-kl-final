@@ -2,8 +2,6 @@ import { ValidateLinkOptions } from '@tanstack/react-router';
 import { FC } from 'react';
 
 import {
-  IconBookOpenDuotone,
-  IconBookOpenFill,
   IconHouseDuotone,
   IconHouseFill,
   IconUserCircleDuotone,
@@ -19,14 +17,6 @@ export const MAIN_NAV_LINKS = [
       to: '/app',
     },
     exact: true,
-  } as const,
-  {
-    labelTranslationKey: 'layout:nav.books',
-    icon: IconBookOpenDuotone,
-    iconActive: IconBookOpenFill,
-    linkOptions: {
-      to: '/app/books',
-    },
   } as const,
   {
     labelTranslationKey: 'layout:nav.account',
