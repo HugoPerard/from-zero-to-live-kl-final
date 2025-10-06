@@ -1,11 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import { PageHome } from '@/features/home/app/page-home';
+import { PageTalks } from '@/features/talks/app/page-talks';
 
 export const Route = createFileRoute('/app/')({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  return <PageHome />;
+  return <PageTalks />;
 }
