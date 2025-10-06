@@ -32,6 +32,8 @@ model User {
   banExpires  DateTime?
   onboardedAt DateTime?
 
+  likes TalkLike[]
+
   @@unique([email])
   @@map("user")
 }
@@ -124,4 +126,27 @@ model Publisher {
   name      String   @unique
 
   @@map("publisher")
+}
+
+model Talk {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  speaker   String
+
+  likes TalkLike[]
+
+  @@map("talk")
+}
+
+model TalkLike {
+  userId        String
+  talkId String
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  talk      Talk     @relation(fields: [talkId], references: [id], onDelete: Cascade)
+
+  @@id([userId, talkId])
+  @@map("talkLike")
 }
